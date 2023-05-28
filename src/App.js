@@ -8,8 +8,7 @@ import Alert from './components/Alert';
 import About from './components/About';
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
+  // BrowserRouter as Router,start,
   Route,
   Routes
 } from "react-router-dom";
@@ -43,18 +42,16 @@ function App() {
   }
   return (
     <>
+        <Navbarinfo title='codewithsomu.com' mode={mode} togglemode={togglemode} />
+        <Alert alert={alert} />
+        <div className="container my-3" >
+        {/* <Textarea mode={mode} showalert={showalert} /> */}
+      <Routes>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/" element={<Textarea mode={mode} showalert={showalert} />}></Route>
+      </Routes>
+        </div>
 
-      <Navbarinfo title='codewithsomu.com' mode={mode} togglemode={togglemode} />
-      <Alert alert={alert} />
-      <div className="container my-3" >
-        <Routes>
-            <Route path="/about" element={<About />}>
-            </Route>
-            <Route path="/home" element={<Textarea mode={mode} showalert={showalert} />}>
-            </Route>
-        </Routes>
-
-      </div>
     </>
   );
 }
